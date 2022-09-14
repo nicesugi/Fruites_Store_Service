@@ -7,20 +7,24 @@
 ## MVP Service
 유저가 상품을 조회 / 주문 할 수 있으며 아래와 같은 기능을 제공한다.
 
-- 유저
+<details>
+<summary> 유저 </summary>
     
     유저는 이용자, 관리자로 나누어져 있으며 
+    회원가입/회원정보, 조회/회원정보수정/회원탈퇴/로그인/로그아웃 의 기능이 있음 
     
-    회원가입/회원정보 조회/회원정보수정/회원탈퇴/로그인/로그아웃 의 기능이 있음 
-    
-    - 정보
+    - 정보 
         - 이름
         - 비밀번호
         - 배송지
         - 사용자 유형
             - 이용자
             - 관리자(is_admin)
-- 상품
+
+</details>
+    
+<details>
+<summary> 상품 </summary>
     
     관리자는 상품 등록/수정/삭제 권한이 있으며, 이용자는 조회만 가능함
     
@@ -31,7 +35,11 @@
         - 배송비
         - 재고
         - 판매 상태
-- 주문
+        
+</details>
+    
+<details>
+<summary> 주문 </summary>
     
     이용자는 판매중인 상품을 주문할 수 있으며 주문내역의 조회/취소가 가능함
     
@@ -44,12 +52,13 @@
         - 주문날짜
         - 주문상태
 
+</details>
 <br>
 
 ## 💻 기술 스택
 
 <div style='flex'>
-<img src="https://img.shields.io/badge/Python3.9.5-3776AB?style=for-the-badge&logo=Python&logoColor=white" >
+<img src="https://img.shields.io/badge/Python3.9.0-3776AB?style=for-the-badge&logo=Python&logoColor=white" >
 <img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=Django&logoColor=white">
 <img src="https://img.shields.io/badge/Django REST framework-092E20?style=for-the-badge&logo=Django REST framework&logoColor=white">
 </div>
@@ -57,11 +66,13 @@
 <br>
 
 ## 👉 ERD
-
-<img width="500" src="" />
+<img width="500" src="https://user-images.githubusercontent.com/104303285/190071938-610941e8-8acf-4aa0-8ead-62b27d98e4af.png" />
 <br>
 
 ## 🙏 API 명세서
+<img width="690" alt="스크린샷 2022-09-14 오후 3 47 03" src="https://user-images.githubusercontent.com/104303285/190080509-529d238c-57fb-4732-b209-e2f7c82d3b8e.png">
+
+
 
 <br>
 
