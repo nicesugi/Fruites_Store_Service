@@ -1,4 +1,4 @@
-from user.models import User
+from user.models import User, Order
 from rest_framework import serializers
 
 
@@ -34,3 +34,8 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True}
         }
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = "__all__"

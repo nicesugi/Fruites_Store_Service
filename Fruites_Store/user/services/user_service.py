@@ -1,5 +1,6 @@
-from user.models import User
-from user.serializers import UserSerializer
+from typing import Dict
+from user.models import User, Order
+from user.serializers import UserSerializer, OrderSerializer
 
 
 def get_user(username: int):
@@ -89,3 +90,66 @@ def delete_user(user_obj: User):
     user_obj.save()
 
     return not user_obj.is_active
+
+
+def get_order(user_id: int) -> OrderSerializer:
+    """
+    모든 상품의 조회를 담당하는 Service
+    Args :
+        username (str): 사용자이름 
+    Return :
+        get_order_serializer
+    """
+    get_orders = Order.objects.filter(user=user_id)
+    get_orders_serializer = OrderSerializer(get_orders, many=True)
+    return get_orders_serializer.data
+
+
+def create_order(user_id: int, create_order_data: Dict[str, str]) -> Dict[str, str]:
+    """
+    상품 수정을 담당하는 Service
+    Args :
+        product_id (int): products.product 외래키, url에 담아서 보내줌,
+        create_order_data (dict): {
+            product (str): 주문한 상품의 정보 or
+            count (str): 상품의 수량
+        }
+    Return :
+        dict[str, str]
+    """
+    create_order_data["user"] = user_id
+    order_serializer = OrderSerializer(data=create_order_data)
+    order_serializer.is_valid(raise_exception=True)
+    order_serializer.save()
+    return ({'create_order': order_serializer.data})
+    
+    
+def update_order(order_id: int, update_order_data: Dict[str, str]) -> Dict[str, str]:
+    """
+    상품 수정을 담당하는 Service
+    Args :
+        order_id (int): orders.order 외래키, url에 담아서 보내줌,
+        update_order_data (dict): {
+            product (str): 주문한 상품의 정보 or
+            count (str): 상품의 수량
+        }
+    Return :
+        dict[str, str]
+    """
+    update_order = Order.objects.get(id=order_id)
+    update_order_serializer = OrderSerializer(update_order, update_order_data, partial=True)
+    update_order_serializer.is_valid(raise_exception=True)
+    update_order_serializer.save()
+    return ({'update_order': update_order_serializer.data})
+
+
+def delete_order(order_id: int) -> None:
+    """
+    주문 취소를 담당하는 Service
+    Args :
+        order_id (int): orders.order 외래키, url에 담아서 보내줌
+    Return :
+        None
+    """
+    delete_order = Order.objects.get(id=order_id)
+    delete_order.delete()
