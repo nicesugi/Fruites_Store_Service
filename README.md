@@ -70,7 +70,7 @@
 <br>
 
 ## 🙏 API 명세서
-<img width="690" alt="스크린샷 2022-09-14 오후 3 47 03" src="https://user-images.githubusercontent.com/104303285/190080509-529d238c-57fb-4732-b209-e2f7c82d3b8e.png">
+<img width="690" alt="스크린샷 2022-09-14 오후 3 47 03" src="https://user-images.githubusercontent.com/104303285/190225770-264af1a7-0257-44d7-83b2-1b1ad58f8dfe.png">
 
 
 
